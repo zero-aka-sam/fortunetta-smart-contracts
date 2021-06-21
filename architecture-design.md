@@ -18,10 +18,25 @@
     2. Define a Struct Client( address, level )
     3. Return Boolean
 
-    2. retrieveClient(address) => { return Struct Client }
+    2. retrieveMyLevel(address) => { return levelId }
 
-    // Usage specification : Shall be used to retrieve level informations, pre every transaction and compared with retrieveEligibility(levelId) method and upgradeLevel() method     is triggered if eligibility criteria is about to be met post the transaction
+    // Usage specification : Shall be used to retrieve level informations, pre every transaction and compared with retrieveEligibility(levelId) method and upgradeLevel()		method is triggered if eligibility criteria is about to be met post the transaction
     
     3. retrieveEligibility(levelId) => { return Struct Eligibility }
     
     // Usage specification : Shall be used to retrieve eligibility criteria of a specific level id provided as an argument
+	
+	//Structure
+	{
+	minBets  : Int,
+	minWins	 : Int,
+	}
+	
+	4. retrieveMyBets(address) => {	return	Array[Struct Bet]	}
+	
+	// Usage specification : Shall be used to retrieve all the up-to-date betting informations for a specific client
+	
+	
+	5. retrieveMyWins(address) => {	return Array[Struct Wins] }
+	
+	// Usage soecification : Shall  be used to retrieve all the up-to-date winning informations for a specific client
