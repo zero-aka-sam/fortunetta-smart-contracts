@@ -26,7 +26,7 @@ _places bet on option three_
 
 _retrieves the reward information set with allocateDailyRewards() method_
 
-> OUTPUT SAMPLE :
+> **OUTPUT SAMPLE**
 
 ```
 
@@ -47,23 +47,25 @@ amount : 400
 
 _distributes allocated amount, received as response invoking retrieveDailyRewards() _
 
-VALIDATION : The method privately calls, validateDailyRewardsElibility(), and distributes reward only if eligibility is true.
+> **VALIDATIONS**
+
+-   The method privately calls, validateDailyRewardsElibility(), and distributes reward only if eligibility is true.
 
 5.  `validateDailyRewardsEligibility(day : Int, address : address)`
 
 _validates if, eligible for the respective daily reward_
 
-OUTPUT SAMPLE :
+> **OUTPUT SAMPLE**
 
-true || false
+`true || false`
 
 6.  `validateUnlockLevelEligibility(currentLevel : Int, address : address)`
 
 _validates if, eligible for the next level to be unlocked_
 
-OUTPUT SAMPLE :
+**OUTPUT SAMPLE**
 
-true || false
+`true || false`
 
 6.  `unlockLevel([{currentLevel : Int, address : address })`
 
@@ -91,14 +93,14 @@ _declares option three as won, and distributes the winning funds_
 
 _allocates reward amounts and eligibilities to receive respective daily rewards_
 
-NOTE : Min age is the timeframe spent after the first bet.
+> **NOTE**
+
+-   Min age is the timeframe spent after the first bet.
 
 6. `allocateLevelsAndEligibility([{level : Int, title : String, minBets : Int, minSpend : Int, minAge : Int ]})`
 
 _allocates eligibilities to receive respective level batches_
 
-NOTE : Min age is the timeframe spent after the first bet.
+> **NOTE**
 
-```
-
-```
+-   Min age is the timeframe spent after the first bet.
