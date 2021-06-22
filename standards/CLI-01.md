@@ -8,21 +8,21 @@
 
     - ### **VALIDATIONS**
 
-    -   - Validate that the client is new, and doesn't exist previously in the reccords.
-    -   - Define a Struct Client( address, level )
-    -   - Return Boolean
+        - Validate that the client is new, and doesn't exist previously in the reccords.
+        - Define a Struct Client( address, level )
+        - Return Boolean
 
     - ### **DEFINITIONS**
 
-    -   - Validate that the client is new, and doesn't exist previously in the reccords.
-    -   - Define a Struct Client( address, level )
-    -   - Return Boolean
+        - Validate that the client is new, and doesn't exist previously in the reccords.
+        - Define a Struct Client( address, level )
+        - Return Boolean
 
     - ### **RETURNS**
 
-    -   - Validate that the client is new, and doesn't exist previously in the reccords.
-    -   - Define a Struct Client( address, level )
-    -   - Return Boolean
+        - Validate that the client is new, and doesn't exist previously in the reccords.
+        - Define a Struct Client( address, level )
+        - Return Boolean
 
 2. ## `retrieveMyLevel(address) => { return levelId }`
 
