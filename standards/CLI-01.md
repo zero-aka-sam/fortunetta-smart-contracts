@@ -1,16 +1,16 @@
 # CLI-01 Standards
 
-1. `InitializeClient(args) => { return boolean || Error Message }`
+## 1. `InitializeClient(args) => { return boolean || Error Message }`
 
-    - Usage specification : Shall be used to upgrade the user from pseudo-level(level 0 : in node ) to real level initialization in the chain.
+    ### *Usage specification* : Shall be used to upgrade the user from pseudo-level(level 0 : in node ) to real level initialization in the chain.
 
-    - Accomplisments
+    ### Accomplisments
 
     -   - Validate that the client is new, and doesn't exist previously in the reccords.
     -   - Define a Struct Client( address, level )
     -   - Return Boolean
 
-2. `retrieveMyLevel(address) => { return levelId }`
+## 2. `retrieveMyLevel(address) => { return levelId }`
 
     // Usage specification : Shall be used to retrieve level informations, pre every transaction and compared with retrieveEligibility(levelId) method and upgradeLevel() method is triggered if eligibility criteria is about to be met post the transaction
 
