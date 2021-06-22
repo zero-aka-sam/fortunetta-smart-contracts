@@ -57,7 +57,9 @@ _validates if, eligible for the respective daily reward_
 
 > **OUTPUT SAMPLE**
 
-`true || false`
+```
+true || false
+```
 
 6.  `validateUnlockLevelEligibility(currentLevel : Int, address : address)`
 
@@ -65,7 +67,9 @@ _validates if, eligible for the next level to be unlocked_
 
 **OUTPUT SAMPLE**
 
-`true || false`
+```
+true || false
+```
 
 6.  `unlockLevel([{currentLevel : Int, address : address })`
 
@@ -104,3 +108,7 @@ _allocates eligibilities to receive respective level batches_
 > **NOTE**
 
 -   Min age is the timeframe spent after the first bet.
+
+```
+
+```
