@@ -28,7 +28,9 @@ _retrieves the reward information set with allocateDailyRewards() method_
 
 > OUTPUT SAMPLE :
 
-````[
+```
+
+[
 {
 day : 1,
 amount : 500
@@ -37,7 +39,9 @@ amount : 500
 day : 2,
 amount : 400
 }
-] ```
+]
+
+```
 
 4.  `receiveDailyReward( day : Int, address : address )`
 
@@ -94,4 +98,7 @@ NOTE : Min age is the timeframe spent after the first bet.
 _allocates eligibilities to receive respective level batches_
 
 NOTE : Min age is the timeframe spent after the first bet.
-````
+
+```
+
+```
