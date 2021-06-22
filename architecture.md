@@ -26,7 +26,7 @@ _places bet on option three_
 
 _retrieves the reward information set with allocateDailyRewards() method_
 
-` OUTPUT SAMPLE :
+> OUTPUT SAMPLE :
 
 [
 {
