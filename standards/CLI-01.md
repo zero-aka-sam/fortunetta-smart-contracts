@@ -1,10 +1,10 @@
-# CLI-01 Standards
+# CLI-01 STANDARDS
 
 ## 1. `InitializeClient(args) => { return boolean || Error Message }`
 
-    ### *Usage specification* : Shall be used to upgrade the user from pseudo-level(level 0 : in node ) to real level initialization in the chain.
+    - Usage specification : Shall be used to upgrade the user from pseudo-level(level 0 : in node ) to real level initialization in the chain.
 
-    ### Accomplisments
+    - Accomplisments
 
     -   - Validate that the client is new, and doesn't exist previously in the reccords.
     -   - Define a Struct Client( address, level )
