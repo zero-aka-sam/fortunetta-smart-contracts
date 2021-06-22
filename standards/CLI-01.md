@@ -2,9 +2,11 @@
 
 1. ## `InitializeClient(args) => { return boolean || Error Message }`
 
-    - ### _Usage specification_ : Shall be used to upgrade the user from pseudo-level(level 0 : in node ) to real level initialization in the chain.
+    - _Usage specification_
 
-    - ### _Accomplisments_
+    Shall be used to upgrade the user from pseudo-level(level 0 : in node ) to real level initialization in the chain.
+
+    - _Accomplisments_
 
     -   - Validate that the client is new, and doesn't exist previously in the reccords.
     -   - Define a Struct Client( address, level )
