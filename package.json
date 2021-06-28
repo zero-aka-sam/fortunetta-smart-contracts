@@ -1,0 +1,10 @@
+{
+  "name": "Fortunetta-Contracts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.1.0",
+    "@truffle/hdwallet-provider": "^1.4.1"
+  }
+}
