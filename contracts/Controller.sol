@@ -61,7 +61,7 @@ contract Controller is IController,Guarded{
 
      /** * @dev finishtheRound based on random choice called via operator
     */ 
-    function finishRound(uint256 _choice)public onlyOperator{
+    function finishRound(uint256 _choice)public onlyOperator returns(uint256){
         require(_choice > 0 && _choice < uint256(4));
          (address[] memory oneAddress,uint256[] memory oneAmounts,
          address[] memory twoAddress,uint256[]memory twoAmounts,
@@ -88,9 +88,9 @@ contract Controller is IController,Guarded{
                Client.addRewards(ids[i],payments[i]);
             }
         }
-        Client.createRound();
-        emit finishedRound(Round.current());
         Round.increment();
+        emit finishedRound((Round.current())-uint256(1));
+        return (Round.current() - uint256(1));
     }
 
     /** * @dev Change to newClient

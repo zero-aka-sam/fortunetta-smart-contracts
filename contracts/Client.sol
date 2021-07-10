@@ -6,12 +6,16 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "./interfaces/IController.sol";
 import "./interfaces/IClient.sol";
 import "./interfaces/IBSCV.sol";
+import "./interfaces/IBANK.sol";
 //import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/security/Pausable.sol";
 
 contract Client is IClient,Ownable{
     /* ========== States ========== */
     //ERC-20
     IBSCV public BSCV;
+
+    //BANK
+    IBANK public Bank;
 
     //Controller
     IController public Controller;
@@ -72,11 +76,12 @@ contract Client is IClient,Ownable{
     
     /* ========== Constructor ========== */
 
-    constructor(IBSCV _token,IController _controller,uint32 _countdown,uint256 _restTime){
+    constructor(IBSCV _token,IController _controller,uint32 _countdown,uint256 _restTime,IBANK _bank){
         BSCV = _token;
         Controller = _controller;
         Countdown = _countdown;
         restTime = _restTime;
+        Bank = _bank;
     }
 
     /* ========== Public Functions ========== */
@@ -192,7 +197,7 @@ contract Client is IClient,Ownable{
         if(pending < BSCV.balanceOf(address(this))){
             BSCV.transferFrom(address(this),msg.sender,pending);
         }else{
-            BSCV.mint(msg.sender, pending);
+            Bank.withdraw(msg.sender, pending);
         }
         //transfer the rewards to the user
         //saving the collection action
@@ -243,7 +248,13 @@ contract Client is IClient,Ownable{
         uint256 roundId = Controller.getCurrentRoundId();
         round storage spin = rounds[roundId];
         return (spin.bettingAddressesOnOne,spin.bettingAmountsOnOne,spin.bettingAddressesOnTwo,spin.bettingAmountsOnTwo,spin.bettingAddressesOnThree,spin.bettingAmountsOnThree,spin.totalPrize);
-    } 
+    }
+    
+    function currentRound() public view returns(uint256,uint256,uint256){
+        uint256 roundId = Controller.getCurrentRoundId();
+        round storage spin = rounds[roundId];
+        return(spin.roundId,spin.start,spin.end);
+    }
     /** * @dev returns a userid registered to the address
     */ 
     function getUserId(address _address)external view override returns(uint32){
@@ -271,6 +282,10 @@ contract Client is IClient,Ownable{
     */ 
     function totalUsers()external view override returns(uint256){
         return users.length;
+    }
+    
+    function totalRounds()external view returns(uint256){
+        return rounds.length;
     }
     
     /* ========== OnlyControllerFunctions ========== */
@@ -331,6 +346,10 @@ contract Client is IClient,Ownable{
 
     function setRestTime(uint256 _rest)public onlyOwner{
         restTime = _rest;
+    }
+    
+    function setBank(IBANK _bank)public onlyOwner{
+        Bank = _bank;
     }
 
     /* ==========Internal========== */

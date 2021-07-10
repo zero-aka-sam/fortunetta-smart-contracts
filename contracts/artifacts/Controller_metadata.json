@@ -1,0 +1,497 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IClient",
+						"name": "_client",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IBSCV",
+						"name": "_bscv",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousGuard",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newGuard",
+						"type": "address"
+					}
+				],
+				"name": "GuardshipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "finishedRound",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "BSCV",
+				"outputs": [
+					{
+						"internalType": "contract IBSCV",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Client",
+				"outputs": [
+					{
+						"internalType": "contract IClient",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Round",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_approved",
+						"type": "bool"
+					}
+				],
+				"name": "changeUserStatus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "createRound",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dailyRewardInterval",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dailyRewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "distributeDailyReward",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_level",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_condition",
+						"type": "uint256"
+					}
+				],
+				"name": "editLevel",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_choice",
+						"type": "uint256"
+					}
+				],
+				"name": "finishRound",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCurrentRoundId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "guard",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_level",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_betCounts",
+						"type": "uint256"
+					}
+				],
+				"name": "levelRequirements",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "_result",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nextdailyRewardAt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "operator",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceGuardship",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IBSCV",
+						"name": "_token",
+						"type": "address"
+					}
+				],
+				"name": "setBSCV",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IClient",
+						"name": "_client",
+						"type": "address"
+					}
+				],
+				"name": "setClient",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "_countDown",
+						"type": "uint32"
+					}
+				],
+				"name": "setCountDown",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					}
+				],
+				"name": "setOperator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newGuard",
+						"type": "address"
+					}
+				],
+				"name": "transferGuardship",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_withdraw",
+						"type": "address"
+					}
+				],
+				"name": "withdrawRevenue",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"editLevel(uint256,uint256)": {
+					"details": "edit the level conditions ",
+					"params": {
+						"_condition": "enter the condition to be changed Use this function wisely as this would messup the levels of the users and other level requirements",
+						"_level": "choose a level to edit its condition"
+					}
+				},
+				"finishRound(uint256)": {
+					"details": "finishtheRound based on random choice called via operator"
+				},
+				"getCurrentRoundId()": {
+					"details": "returns the current roundId"
+				},
+				"guard()": {
+					"details": "Returns the address of the current owner."
+				},
+				"levelRequirements(uint256,uint256)": {
+					"details": "returns true when the levelrequirements met by the user.Used by levelManager"
+				},
+				"renounceGuardship()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"setBSCV(address)": {
+					"details": "Change ERC20"
+				},
+				"setClient(address)": {
+					"details": "Change to newClient"
+				},
+				"setOperator(address)": {
+					"details": "Change operator"
+				},
+				"transferGuardship(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Controller.sol": "Controller"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xf8e8d118a7a8b2e134181f7da655f6266aa3a0f9134b2605747139fcb0c5d835",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9ec48567e7ad06acb670980d5cdf3fd7f3949bf12894f02d68c3bb43e75aa84f",
+				"dweb:/ipfs/QmaG3R2J9cz92YT77vFjYrjMNU2wHp4ypwYD62HqDUqS5U"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xf930d2df426bfcfc1f7415be724f04081c96f4fb9ec8d0e3a521c07692dface0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fc2bfdea0d2562c76fb3c4cf70a86c6ba25c5a30e8f8515c95aafdf8383f8395",
+				"dweb:/ipfs/QmTbFya18786ckJfLYUoWau9jBTKfmWnWm5XSViWvB7PXN"
+			]
+		},
+		"@openzeppelin/contracts/utils/Counters.sol": {
+			"keccak256": "0x62d306ff0499a11913bc60b5939eec619509b5c67b30e86ebf8b8bda0b7a7fee",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6712ca27a06062db31465b1470e6207553553a9bb0b4358d918b35bdae5b4ffe",
+				"dweb:/ipfs/QmZ92pU9DJ3h1qREMFvDQhArSy6fh6zA983NeLFHRs1qKJ"
+			]
+		},
+		"contracts/Controller.sol": {
+			"keccak256": "0xddfe08db5aba829bea2e34ad220f85fd40f28d00352d6b0c04a4452f481ba297",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bc873f1c1ebc0bb1cccd5a69d2f0f98f8e57129ea88b5103fbb68d19c3e26b69",
+				"dweb:/ipfs/QmSrCvSWqiAu5iVYG4p1PPAE4cJ2X1kmB2SsT3b5pQ2ypg"
+			]
+		},
+		"contracts/interfaces/IBSCV.sol": {
+			"keccak256": "0x54cc9e778257df5e76f595a5de18569fd6786a85ac82a12f3128f7e77e52d099",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a3ed272c0a181aec22386bd736bee9d2a51373d85c398aaf1be54c9812c16ec8",
+				"dweb:/ipfs/Qmd8aq8xKHfHMja76E9ohfEQdsonphmZisRGqgwr87ARmJ"
+			]
+		},
+		"contracts/interfaces/IClient.sol": {
+			"keccak256": "0xf05ba4cb512d955e343102f18e57b5fe49d246dd0846eb6cf64b013014b9268d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d83e0a881d9c8bfe7e22309a839edb5484f718fd3ab75ecf898867505ff31ed1",
+				"dweb:/ipfs/QmfXAmmfTzvJBN5FM52SAnvmDt2XYkPU8T7G9yZUCAYQ37"
+			]
+		},
+		"contracts/interfaces/IController.sol": {
+			"keccak256": "0xf5f3177d406a1a063942418648d78cd9df1a3b3b4930e56157e035401121a2c8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2c63b1e93036bbf183baed2894edee33bafb0129447298271f33bc3f5f58c770",
+				"dweb:/ipfs/QmdqWwjnrD2GLHLbNb1qJqDMmz2He4tfdS9TcnrmkN9oZA"
+			]
+		},
+		"contracts/lib/Guarded.sol": {
+			"keccak256": "0x37f1233365dcc7962ccb227fa87ba00a25e432dd976dce3c43520bffc84bb983",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7e08556f654f71e8d5894679b94f8fbded775d7bfdc0250bc5d63b26c8014031",
+				"dweb:/ipfs/QmVaknU4dEpbDtL5EX2btYtqwtBMogD8SH16D9WpHDdL5a"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,793 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IBSCV",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IController",
+						"name": "_controller",
+						"type": "address"
+					},
+					{
+						"internalType": "uint32",
+						"name": "_countdown",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_restTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "contract IBANK",
+						"name": "_bank",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint32",
+						"name": "userID",
+						"type": "uint32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "choice",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "betPlaced",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					}
+				],
+				"name": "roundCreated",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "BSCV",
+				"outputs": [
+					{
+						"internalType": "contract IBSCV",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Bank",
+				"outputs": [
+					{
+						"internalType": "contract IBANK",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Controller",
+				"outputs": [
+					{
+						"internalType": "contract IController",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Countdown",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Tax",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_userId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amounts",
+						"type": "uint256"
+					}
+				],
+				"name": "addRewards",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "_userId",
+						"type": "uint32"
+					}
+				],
+				"name": "approveUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_choice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "bet",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "_userID",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "result",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "_userId",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_choice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_betAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "betManager",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "collectRewards",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "createRound",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "currentInfo",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "currentRound",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "getPendingRewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_roundId",
+						"type": "uint256"
+					}
+				],
+				"name": "getRoundInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "start",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "end",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address[]",
+						"name": "bettingAddressesOnOne",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "bettingAmountsOnOne",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "bettingAddressesOnTwo",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "bettingAmountsOnTwo",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "bettingAddressesOnThree",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "bettingAmountsOnThree",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "winningChoice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalPrize",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "getUserId",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "_userId",
+						"type": "uint32"
+					}
+				],
+				"name": "getUserInfo",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "UserID",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "Level",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "PendingRewards",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "CollectedRewards",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "LockTill",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "BetCounts",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "Approve",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "restTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IBSCV",
+						"name": "_token",
+						"type": "address"
+					}
+				],
+				"name": "setBSCV",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IBANK",
+						"name": "_bank",
+						"type": "address"
+					}
+				],
+				"name": "setBank",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IController",
+						"name": "_controller",
+						"type": "address"
+					}
+				],
+				"name": "setController",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "_countdown",
+						"type": "uint32"
+					}
+				],
+				"name": "setCountdown",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_rest",
+						"type": "uint256"
+					}
+				],
+				"name": "setRestTime",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_choice",
+						"type": "uint256"
+					}
+				],
+				"name": "setWinningChoice",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalRounds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalUsers",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "_userId",
+						"type": "uint32"
+					}
+				],
+				"name": "unapproveUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"bet(uint256,uint256)": {
+					"details": "used to bet in the current round The user is registered if he/she is a new user and assigned a new userId"
+				},
+				"betManager(uint32,uint256,uint256)": {
+					"details": "used to bet without any automated checking"
+				},
+				"collectRewards()": {
+					"details": "collect rewards you've won accessed only by approvedUsers"
+				},
+				"createRound()": {
+					"details": "Creates round controlled by owner"
+				},
+				"currentInfo()": {
+					"details": "returns number of placed bet in the round"
+				},
+				"getPendingRewards(address)": {
+					"details": "returns pending Rewards of a user"
+				},
+				"getRoundInfo(uint256)": {
+					"details": "returns the roundinfo based on roundId"
+				},
+				"getUserId(address)": {
+					"details": "returns a userid registered to the address"
+				},
+				"getUserInfo(uint32)": {
+					"details": "returns user struct of registered userInfo"
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"totalUsers()": {
+					"details": "return totalUsers "
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Client.sol": "Client"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0x1cae4f85f114ff17b90414f5da67365b1d00337abb5bce9bf944eb78a2c0673c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d5ff16b336ce8f906478d5f2eecc6435e00833bdc0b92f6b209cf9e92cb5b2b7",
+				"dweb:/ipfs/QmRD1rAZEqQ73C33cdA3QoUyBDMEWnNKNMc6PNkAZWHeQQ"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xf8e8d118a7a8b2e134181f7da655f6266aa3a0f9134b2605747139fcb0c5d835",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9ec48567e7ad06acb670980d5cdf3fd7f3949bf12894f02d68c3bb43e75aa84f",
+				"dweb:/ipfs/QmaG3R2J9cz92YT77vFjYrjMNU2wHp4ypwYD62HqDUqS5U"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xf930d2df426bfcfc1f7415be724f04081c96f4fb9ec8d0e3a521c07692dface0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fc2bfdea0d2562c76fb3c4cf70a86c6ba25c5a30e8f8515c95aafdf8383f8395",
+				"dweb:/ipfs/QmTbFya18786ckJfLYUoWau9jBTKfmWnWm5XSViWvB7PXN"
+			]
+		},
+		"contracts/Client.sol": {
+			"keccak256": "0x0351e589ca8ebad0b1a6385cf9f9c63a50ed7a046e646a895f97715f683f5f87",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c9adae8ef3247e3c1f4c8028026ec65b7407d1167d0078e98ac81f7143eebd6b",
+				"dweb:/ipfs/QmW9bTEqrczuc7kQVP2iruSut1NJAPDGa5BTBP5prg3xY3"
+			]
+		},
+		"contracts/interfaces/IBANK.sol": {
+			"keccak256": "0xaf4c6688dcd7b92b0f5e428e117cc1bccff99961ae1efc7e27470c64aba3edf4",
+			"urls": [
+				"bzz-raw://9b0d10532e373e9125a53e81bea645c3c4c8d65850f0facea638b78b351793b8",
+				"dweb:/ipfs/Qmbv9YhXJiBgADkNxNkXB43TCta3CWiQeJ2K98vnnD6Fsq"
+			]
+		},
+		"contracts/interfaces/IBSCV.sol": {
+			"keccak256": "0x54cc9e778257df5e76f595a5de18569fd6786a85ac82a12f3128f7e77e52d099",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a3ed272c0a181aec22386bd736bee9d2a51373d85c398aaf1be54c9812c16ec8",
+				"dweb:/ipfs/Qmd8aq8xKHfHMja76E9ohfEQdsonphmZisRGqgwr87ARmJ"
+			]
+		},
+		"contracts/interfaces/IClient.sol": {
+			"keccak256": "0xf05ba4cb512d955e343102f18e57b5fe49d246dd0846eb6cf64b013014b9268d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d83e0a881d9c8bfe7e22309a839edb5484f718fd3ab75ecf898867505ff31ed1",
+				"dweb:/ipfs/QmfXAmmfTzvJBN5FM52SAnvmDt2XYkPU8T7G9yZUCAYQ37"
+			]
+		},
+		"contracts/interfaces/IController.sol": {
+			"keccak256": "0xf5f3177d406a1a063942418648d78cd9df1a3b3b4930e56157e035401121a2c8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2c63b1e93036bbf183baed2894edee33bafb0129447298271f33bc3f5f58c770",
+				"dweb:/ipfs/QmdqWwjnrD2GLHLbNb1qJqDMmz2He4tfdS9TcnrmkN9oZA"
+			]
+		}
+	},
+	"version": 1
+}
