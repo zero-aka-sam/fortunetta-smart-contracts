@@ -35,7 +35,7 @@ contract Controller is IController,Guarded{
     //dailyRewardInterval
     uint256 public dailyRewardInterval = uint256(1 days);
     
-    event finishedRound(uint256 _id);
+    event finishedRound(uint256 _id,uint256 _choice);
     
     constructor(address _operator,IClient _client,IBSCV _bscv){
         operator = _operator;
@@ -89,7 +89,7 @@ contract Controller is IController,Guarded{
             }
         }
         Round.increment();
-        emit finishedRound((Round.current())-uint256(1));
+        emit finishedRound((Round.current())-uint256(1),_choice);
         return (Round.current() - uint256(1));
     }
 

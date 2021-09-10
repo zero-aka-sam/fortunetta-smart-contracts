@@ -24,9 +24,16 @@ contract BSCV is Ownable,ERC20("BSCGamble","BSCV"),IBSCV{
     /* ========== Functions ========== */
     /** * @dev mint desired number of tokens to the address 
     Only accessible by Client contract */ 
-    function mint(address _to,uint256 _amount)external override onlyOwner{
-        _mint(_to,_amount);
-    }
+    // function mint(address _to,uint256 _amount)external override onlyOwner{
+    //     _mint(_to,_amount);
+    // }
+    
+    //free token development purposes
+    
+    function mint(address _to,uint256 _amount)external override {
+         _mint(_to,_amount);
+     }
+    
 
     /** * @dev _beforeBet, a checking function that is 
     called during bet which returns bool*/ 

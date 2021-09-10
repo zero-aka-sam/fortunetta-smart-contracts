@@ -31,6 +31,9 @@ contract Client is IClient,Ownable{
 
     //track userId through address
     mapping(address => uint32)private userId;
+    
+    //track address through userId 
+    mapping(uint32 => address)private userAddress;
 
     //validation
     mapping(address => mapping(uint256 => uint256))private betAmounts;
@@ -260,6 +263,10 @@ contract Client is IClient,Ownable{
     function getUserId(address _address)external view override returns(uint32){
         return uint32(userId[_address]);
     }
+    
+    function getUserAddress(uint32 _id)public view returns(address){
+        return userAddress[_id];
+    }
     /** * @dev returns user struct of registered userInfo
     */ 
     function getUserInfo(uint32 _userId)external override view returns(uint32 UserID,
@@ -376,6 +383,7 @@ contract Client is IClient,Ownable{
         });
         users.push(info);
         userId[_address] = totalUser;
+        userAddress[totalUser] = _address;
         return("Created USERID",totalUser);
     }
     function levelManager(uint32 _userId,uint32 _level,uint256 _betCounts)internal{
